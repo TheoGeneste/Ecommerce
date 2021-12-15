@@ -27,6 +27,11 @@ class Avis
      */
     private $date_creation;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="fk_avis")
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class Avis
     public function setDateCreation(\DateTimeInterface $date_creation): self
     {
         $this->date_creation = $date_creation;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
