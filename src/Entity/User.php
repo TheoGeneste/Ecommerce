@@ -25,6 +25,7 @@ class User
     private $login;
 
     /**
+     * @var string The hashed password
      * @ORM\Column(type="string", length=255)
      */
     private $password;
