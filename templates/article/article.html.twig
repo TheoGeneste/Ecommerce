@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article detail{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="text-center">
+        <h1>Article</h1>
+    </div>
+    <div class="row">
+        <div>
+            {%  if article.image is not null %}
+                <img src="{{ asset('images/articles/'~article.image) }}" alt="paysage" height="500px" width="500px">
+            {%  endif %} 
+        </div>
+        <div class="col-md-auto">
+            <div class="card" style="width: 18rem;">
+                {# <img src="..." class="card-img-top" alt="..."> #}
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ article.titre }}</h5>
+                    <p class="card-text">Description : {{ article.contenu }} <br>
+                    Marque : {{ article.marque }} <br>
+                    Quantité : {{article.quantite}}<br>
+                    Categories :
+                        {% for categorie in article.getCategories %}
+                        {{ categorie.libelle }}<br>
+                    {% endfor %}
+                    </p>    
+                    <a href="article/{{article.id}}" class="btn btn-primary stretched-link">Ajouter au panier</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
