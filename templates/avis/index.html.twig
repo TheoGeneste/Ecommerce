@@ -8,13 +8,22 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<div class="container">
+    <h1 class ="text-center">Avis</h1>
+    <table class="table">
+    <thead>
+    <tr>
+        <td> Contenu </td>
+        <td> Date </td>
+    </tr>
+    </thead>
+        {% for av in avis %}
+            <tr>
+            <td>{{av.contenu}}</td>
+            {# <tr>{{av.date_creation}}</tr> #}
+            </tr>
+        {% endfor %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/theogeneste/Documents/Ecommerce/src/Controller/AvisController.php'|file_link(0) }}">src/Controller/AvisController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/theogeneste/Documents/Ecommerce/templates/avis/index.html.twig'|file_link(0) }}">templates/avis/index.html.twig</a></code></li>
-    </ul>
+    </table>
 </div>
 {% endblock %}

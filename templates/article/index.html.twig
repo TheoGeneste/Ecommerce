@@ -1,14 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello ArticleController!{% endblock %}
-
 {% block body %}
 <div class="container">
     <div class="text-center">
         <h1>Articles</h1>
     </div>
     <form>
-    <fieldset>
+    {# <fieldset>
         <legend>Filtres</legend>
         <div class="mb-3">
         <label for="categories" class="form-label">Categories</label>
@@ -18,16 +17,15 @@
         </select>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-    </fieldset>
+    </fieldset> #}
     </form>
     <div class="row">
     {% for article in articles %}
         <div class="card" style="width: 18rem;">
-            {# <img src="..." class="card-img-top" alt="..."> #}
             <div class="card-body text-center">
                 <h5 class="card-title">{{ article.titre }}</h5>
                  {%  if article.image is not null %}
-                    <img src="{{ asset('images/articles/'~article.image) }}" alt="paysage">
+                    <img src="{{ asset('images/articles/'~article.image) }}" alt="paysage" width="200px">
                 {%  endif %}
                 <p class="card-text">Description : {{ article.contenu }} <br>
                 Marque : {{ article.marque }} <br>
@@ -35,7 +33,8 @@
                 Categories :
                  {% for categorie in article.getCategories %}
                     {{ categorie.libelle }}<br>
-                {% endfor %}
+                {% endfor %}<br>
+                Prix : {{ article.prix}}€
                 </p>    
                 <a href="article/{{article.id}}" class="btn btn-primary stretched-link">Voir l'article</a>
             </div>

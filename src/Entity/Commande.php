@@ -22,6 +22,11 @@ class Commande
      */
     private $date_creation;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Security::class, cascade={"persist", "remove"})
+     */
+    private $userId;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +40,18 @@ class Commande
     public function setDateCreation(\DateTimeInterface $date_creation): self
     {
         $this->date_creation = $date_creation;
+
+        return $this;
+    }
+
+    public function getUserId(): ?Security
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(?Security $userId): self
+    {
+        $this->userId = $userId;
 
         return $this;
     }

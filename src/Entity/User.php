@@ -81,7 +81,7 @@ class User
     {
         if (!$this->fk_avis->contains($fkAvi)) {
             $this->fk_avis[] = $fkAvi;
-            $fkAvi->setUser($this);
+            // $fkAvi->setUser($this);
         }
 
         return $this;

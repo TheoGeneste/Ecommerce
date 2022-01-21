@@ -9,12 +9,28 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/theogeneste/Documents/Ecommerce/src/Controller/CategorieController.php'|file_link(0) }}">src/Controller/CategorieController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/theogeneste/Documents/Ecommerce/templates/categorie/index.html.twig'|file_link(0) }}">templates/categorie/index.html.twig</a></code></li>
-    </ul>
+    <h1 class="text-center">Categories</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Libelle</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categories %}
+            <tr>
+                <td>{{categorie.libelle}}</th>
+                <td align="center"><a href="#" class="btn btn-success">Voir les articles</a></th>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfooter>
+            <tr>
+                <td></th>
+                <td align="center"><a href="addCategories" class="btn btn-primary">Ajouter une categories</a></th>
+            </tr>
+        </tfooter>
+    </table>
 </div>
 {% endblock %}

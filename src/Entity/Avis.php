@@ -28,7 +28,7 @@ class Avis
     private $date_creation;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="fk_avis")
+     * @ORM\OneToOne(targetEntity=Security::class, cascade={"persist", "remove"})
      */
     private $user;
 
@@ -61,12 +61,12 @@ class Avis
         return $this;
     }
 
-    public function getUser(): ?User
+    public function getUser(): ?Security
     {
         return $this->user;
     }
 
-    public function setUser(?User $user): self
+    public function setUser(?Security $user): self
     {
         $this->user = $user;
 
